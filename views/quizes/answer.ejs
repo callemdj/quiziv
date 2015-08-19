@@ -1,0 +1,13 @@
+<% if (respuesta === 'Incorrecto'){%>
+    <p><img class="respuesta_img" src="/images/emoticon_fallo.png"></p>
+<% }else{%>
+    <p><img class="respuesta_img" src="/images/emoticon_acierto.png"></p>
+<%}%>
+<div class="respuesta">
+  <h3><%= respuesta %></h3>
+</div>
+<p class="boton_volver">
+  <a href="/quizes/<%= quiz.id %>">
+    <button>Volver</button>
+  </a>
+</p>
