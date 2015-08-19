@@ -1,0 +1,22 @@
+<% if (quiz.image){%>
+    <img class="user_img margen" src="/media/quizes/<%= quiz.image %>">
+<% }%>
+<p><label for="select" class="rem">Tema:</label>
+  <select name="quiz[tema]">
+  		<option value="Otro" <% if (quiz.tema === "Otro") { %> selected <% } %> >Otro</option>
+  		<option value="Ciencia" <% if (quiz.tema === "Ciencia") { %> selected <% } %> >Ciencia</option>
+  		<option value="Humanidades" <% if (quiz.tema === "Humanidades") { %> selected <% } %> >Humanidades</option>
+  		<option value="Ocio" <% if (quiz.tema === "Ocio") { %> selected <% } %> >Ocio</option>
+  		<option value="Tecnología" <% if (quiz.tema === "Tecnología") { %> selected <% } %> >Tecnología</option>
+  	</select>
+</p>
+<p><label for="preg" class="rem">Pregunta:</label>
+<input type="text" id="preg" name="quiz[pregunta]" placeholder="<%= quiz.pregunta %>" /></p>
+<p><label for="resp" class="rem">Respuesta:</label>
+<input type="text" id="resp" name="quiz[respuesta]" placeholder="<%= quiz.respuesta %>" /></p>
+<p class="margen">
+  <label for="image" class="rem">Imagen:</label>
+  <input type="file" accept="image/*" id="image" name="quiz[image]"/>
+</p>
+<a class="margen" href="/quizes"><button type="button">Cancelar</button></a>
+<input class="margen" type="submit" value="Guardar">
