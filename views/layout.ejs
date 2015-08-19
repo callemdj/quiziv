@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Preguntas</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet'
+          type='text/css'
+          media='only screen and (min-width: 720px) and (min-device-width: 481px)'
+          href='/stylesheets/wide.css' />
+    <link rel='stylesheet'
+          type='text/css'
+          media='only screen and (max-width: 480px)'
+          href='/stylesheets/smartphone.css' />
+
+  </head>
+  <body>
+    <div id="page-wrap">
+      <header class="main" id="h1">
+        <figure>
+          <img src="/images/quiz.png" alt="logo de quiz">
+        </figure>
+        <h1>Quiz<span>: el juego de las preguntas</span></h1>
+        <% if(!session.user) { %>
+          <p class="right"><span>Usuario: no logueado</span><br><span><a href="/login">Login</a><br><a href='/user'>Registrate</a></span></p>
+        <% }else{ %>
+          <p class="right">
+            <%if (session.user.image){%>
+                <img class="" src="/media/user/<%=session.user.image %>">
+            <% }else{%>
+                <img class="defecto_img" src="/images/defecto.png" />  
+            <%}%>
+            <span>Usuario: <%=session.user.username%></span><br><span><a href="/user/<%=session.user.id%>/edit">Editar</a><br><a href="/logout">Logout</a></span>
+          </p>
+        <% } %>
+      </header>
+      <div class="contenedor">
+        <nav class="main" id="n1" role="navigation">
+          <a href="/">Inicio</a>
+          <a href="/quizes">Preguntas</a>
+          <%if(session.user){%>
+            <a href="/user/<%=session.user.id%>/quizes">Mis Preguntas</a>
+          <%}%>
+          <a href="/quizes/statistics">Estadísticas</a>
+          <a href="/author">Autor</a>
+        </nav>
+        <section class="main" id="s1">
+          <% if (errors.length){ %>
+            <span id="ErrorMsgs">
+              Corregir errores:<br/>
+              <% for (var i in errors){ %>
+                <span> <%= errors[i].message %> </span><br/>
+              <% } %>
+            </span>
+          <% } %>
+          <%- body %>
+        </section>
+    </div>
+      <footer class="main" id="f1">
+        <a href="http://es.wikipedia.org/wiki/Quiz" target="_blank">¿Que es un Quiz?</a>
+        <a href="http://github.com/Antonio-Ropero-Muela/quiz-2015.git" target="_blank">Proyecto github</a>
+      </footer>
+    </div>
+    <script  src="https://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="/javascripts/layout.js" type="text/javascript"></script>
+  </body>
+</html>
