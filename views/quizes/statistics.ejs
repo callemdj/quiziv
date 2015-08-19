@@ -1,0 +1,40 @@
+<h2>Página de estadísticas</h2>
+<div class="listado">
+  <div class="tema titulo_preguntas listado1 stat">
+    Preguntas:
+  </div>
+  <div class="tema pregunta listado1 stat">
+     <span><%= statistics.numQuizes %></span>
+  </div>
+  <div class="tema titulo_preguntas listado1 stat">
+    Comentarios totales:
+  </div>
+  <div class="tema preguntas listado1 stat">
+    <span><%= statistics.numComments %></span>
+  </div>
+  <div class="tema titulo_preguntas listado1 stat">
+    Comentarios no publicados:
+  </div>
+  <div class="tema preguntas listado1 stat">
+    <span><%= statistics.numNoCommentedQuizes %>
+    (<%= statistics.numComments?(statistics.numNoCommentedQuizes * 100 / statistics.numComments).toFixed(2)+'%':'100%' %>)</span>
+  </div>
+  <div class="tema titulo_preguntas listado1 stat">
+    Media de comentarios por pregunta:
+  </div>
+  <div class="tema preguntas listado1 stat">
+    <span><%= statistics.numQuizes?(statistics.numComments / statistics.numQuizes).toFixed(2):0 %></span>
+  </div>
+  <div class="tema titulo_preguntas listado1 stat">
+    Preguntas sin comentarios:
+  </div>
+  <div class="tema preguntas listado1 stat">
+    <span><%= statistics.numQuizes - statistics.numCommentedQuizes %></span>
+  </div>
+  <div class="tema titulo_preguntas listado1 stat">
+    Preguntas con comentarios:
+  </div>
+  <div class="tema preguntas listado1 stat">
+    <span><%= statistics.numCommentedQuizes %></span>
+  </div>
+</div>
